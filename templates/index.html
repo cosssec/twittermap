@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h1>PLease type user's name.</h1>
+<form action="/gen_map" method="post">
+    <input name="username" placeholder="Username" type="text">
+    <input type="submit" value="Generate map">
+</form>
+{% endblock %}
