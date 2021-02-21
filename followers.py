@@ -90,7 +90,7 @@ def create_map(base):
         map.add_child(locs)
 
     map.add_child(folium.LayerControl())
-    map.save('MapFriends.html')
+    return map._repr_html_()
 
 
 app = Flask(__name__)
@@ -107,8 +107,7 @@ def followers_map():
     token = request.form.get('needed_token')
     if not name:
         return render_template('failure.html')
-    create_map(add_location(create_base(friends(name, token))))
-    return render_template('MapFriends.html')
+    return create_map(add_location(create_base(friends(name, token))))
 
 
 if __name__ == '__main__':
